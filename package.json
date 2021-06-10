@@ -2,13 +2,13 @@
   "name": "postcss-pxtoremcalc",
   "description": "A CSS post-processor that converts px to calc(1rem+npx).",
   "version": "1.0.0",
-  "author": "roger",
+  "author": "rogerIF",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:roger/postcss-pxtoremcalc.git"
+    "url": "git@github.com:rogerIF/postcss-pxtoremcalc.git"
   },
-  "bugs": "https://github.com/roger/postcss-pxtoremcalc/issues",
+  "bugs": "https://github.com/rogerIF/postcss-pxtoremcalc/issues",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
