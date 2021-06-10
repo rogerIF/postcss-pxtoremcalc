@@ -1,11 +1,11 @@
 # postcss-pxtorem [![NPM version](https://badge.fury.io/js/postcss-pxtorem.svg)](http://badge.fury.io/js/postcss-pxtorem)
 
-A plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from pixel units.
+A plugin for [PostCSS](https://github.com/ai/postcss) that generates calc(1rem + npx) from pixel units.
 
 ## Install
 
 ```shell
-$ npm install postcss postcss-pxtorem --save-dev
+$ npm install postcss postcss-pxtoremcalc --save-dev
 ```
 
 ## Usage
@@ -23,15 +23,13 @@ h1 {
     margin: 0 0 20px;
     font-size: 32px;
     line-height: 1.2;
-    letter-spacing: 1px;
 }
 
 // output
 h1 {
     margin: 0 0 20px;
-    font-size: 2rem;
+    font-size: calc(1rem + 16px);
     line-height: 1.2;
-    letter-spacing: 0.0625rem;
 }
 ```
 
@@ -40,12 +38,12 @@ h1 {
 ```js
 var fs = require('fs');
 var postcss = require('postcss');
-var pxtorem = require('postcss-pxtorem');
+var pxtoremcalc = require('postcss-pxtoremcalc');
 var css = fs.readFileSync('main.css', 'utf8');
 var options = {
     replace: false
 };
-var processedCss = postcss(pxtorem(options)).process(css).css;
+var processedCss = postcss(pxtoremcalc(options)).process(css).css;
 
 fs.writeFile('main-rem.css', processedCss, function (err) {
   if (err) {
@@ -101,9 +99,9 @@ Default:
 
 ```js
 var gulp = require('gulp');
-var postcss = require('gulp-postcss');
+var postcss = require('gulp-postcsscalc');
 var autoprefixer = require('autoprefixer');
-var pxtorem = require('postcss-pxtorem');
+var pxtorem = require('postcss-pxtoremcalc');
 
 gulp.task('css', function () {
 
@@ -131,7 +129,7 @@ Currently, the easiest way to have a single property ignored is to use a capital
     font-size: 16px; // converted to 1rem
 }
 
-// `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers
+// `Px` or `PX` is ignored by `postcss-pxtoremcalc` but still accepted by browsers
 .ignore {
     border: 1Px solid; // ignored
     border-width: 2PX; // ignored

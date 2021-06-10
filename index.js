@@ -42,22 +42,33 @@ function convertLegacyOptions(options) {
     }
   });
 }
-
 function createPxReplace(rootValue, unitPrecision, minPixelValue) {
   return (m, $1) => {
     if (!$1) return m;
     const pixels = parseFloat($1);
     if (pixels < minPixelValue) return m;
-    const fixedVal = toFixed(pixels / rootValue, unitPrecision);
-    return fixedVal === 0 ? "0" : fixedVal + "rem";
+    // const fixedVal = toFixed(pixels / rootValue, unitPrecision);
+    // return fixedVal === 0 ? "0" : fixedVal + "rem";
+    const addNum = pixels - rootValue;
+    return addNum === 0 ? "1rem" : `calc(1rem + ${addNum}px)`;
   };
 }
 
-function toFixed(number, precision) {
-  const multiplier = Math.pow(10, precision + 1),
-    wholeNumber = Math.floor(number * multiplier);
-  return (Math.round(wholeNumber / 10) * 10) / multiplier;
-}
+// function createPxReplace(rootValue, unitPrecision, minPixelValue) {
+//   return (m, $1) => {
+//     if (!$1) return m;
+//     const pixels = parseFloat($1);
+//     if (pixels < minPixelValue) return m;
+//     const fixedVal = toFixed(pixels / rootValue, unitPrecision);
+//     return fixedVal === 0 ? "0" : fixedVal + "rem";
+//   };
+// }
+
+// function toFixed(number, precision) {
+//   const multiplier = Math.pow(10, precision + 1),
+//     wholeNumber = Math.floor(number * multiplier);
+//   return (Math.round(wholeNumber / 10) * 10) / multiplier;
+// }
 
 function declarationExists(decls, prop, value) {
   return decls.some(decl => decl.prop === prop && decl.value === value);
