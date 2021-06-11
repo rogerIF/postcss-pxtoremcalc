@@ -1,11 +1,12 @@
-# postcss-pxtorem [![NPM version](https://badge.fury.io/js/postcss-pxtorem.svg)](http://badge.fury.io/js/postcss-pxtorem)
+# postcss-pxtoremcalc fork from postcss-pxtorem
 
 A plugin for [PostCSS](https://github.com/ai/postcss) that generates calc(1rem + npx) from pixel units.
+It's the same version as [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem).
 
 ## Install
 
 ```shell
-$ npm install postcss postcss-pxtoremcalc --save-dev
+$ npm install postcss-pxtoremcalc --save-dev
 ```
 
 ## Usage
@@ -77,7 +78,7 @@ Default:
     - Use wildcard `*` to enable all properties. Example: `['*']`
     - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)
     - Use `!` to not match a property. Example: `['*', '!letter-spacing']`
-    - Combine the "not" prefix with the other prefixes. Example: `['*', '!font*']`
+    - Combine the "not" prefix with the other prefixes. Example: `['*', '!font*']` 
 - `selectorBlackList` (Array) The selectors to ignore and leave as px.
     - If value is string, it checks to see if selector contains the string.
         - `['body']` will match `.body-class`

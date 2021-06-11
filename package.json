@@ -1,7 +1,7 @@
 {
   "name": "postcss-pxtoremcalc",
   "description": "A CSS post-processor that converts px to calc(1rem+npx).",
-  "version": "1.0.0",
+  "version": "5.1.1",
   "author": "rogerIF",
   "license": "MIT",
   "repository": {
@@ -30,19 +30,17 @@
     "husky": "^4.2.3",
     "jasmine-node": "^3.0.0",
     "lint-staged": "^10.0.8",
-    "postcss": "^8.0.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
     "css",
     "rem",
-    "calc",
     "pixel",
     "px",
     "postcss",
     "postcss-plugin"
   ],
-  "peerDependencies": {
-    "postcss": "^8.0.0"
+  "dependencies": {
+    "postcss": "^7.0.27"
   }
 }
